@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block content %}
+
+<body>
+	{% for msg in messages %}
+
+	    <div class="alert alert-success alert-dismissible fade show" role="alert">
+		  	 <strong>Hey!</strong>{{ msg }}
+		  	 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		     	<span aria-hidden="true">&times;</span>
+		     </button>
+	    </div>
+    {% endfor %}
+	<div style="margin: 0 auto; border: 1px solid green; width:400px; height:100px;padding: 30px;">
+	<form action="{% url 'home:login' %}" method="POST">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>
+					{{ form.as_table }}
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Submit" name="">
+	</form>
+	</div>
+</body>
+{% endblock %}

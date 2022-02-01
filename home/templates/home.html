@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block content %}
+<body>
+	<h1>Welcome{{user.Name}}</h1>
+	<table>
+		<tr>
+			<td>Age</td>
+			<td>{{user.Age}}</td>
+			<td><img src="{{user.Photo.url}}" height=300px width=300px></td>
+		</tr>
+		<tr><a href="{% url 'home:update' user.id %}">Update</a></tr>
+		<tr><a href="{% url 'home:changePassword' user.id %}">Change Password</a></tr>
+		<tr><a href="{% url 'home:logout' %}" >Logout</a></tr>
+	</table>
+</body>
+{% endblock %}
